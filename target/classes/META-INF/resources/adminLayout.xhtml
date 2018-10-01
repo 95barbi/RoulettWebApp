@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="css/stylesheet.css" />
+</h:head>
+<h:body>
+	<div class="container">
+		<header>
+			<section>
+				<img id="img-1" src="images/headerImg.jpg" height="150" width="150" />
+				<div class="header-title"><br/>Welcome at the Roulett web app game</div>
+				<img id="img-2" src="images/headerImg.jpg" height="150" width="150" />
+			</section>
+		</header>
+		<nav>
+			<a class="nav-link" href="adminHomePage.xhtml">Home Page</a>
+			<a class="nav-link" href="getPlayers.xhtml">Játékosok</a>
+			<a class="nav-link" href="getGames.xhtml">Játékok</a>
+			<a class="nav-link" href="statistics.xhtml">Statisztikák</a>
+		</nav>
+		<main> <ui:insert name="content"></ui:insert> </main>
+		<footer>Roulett game web app footer</footer>
+	</div>
+</h:body>
+</html>

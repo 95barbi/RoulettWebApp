@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:app="http://app.lippert.hu/taglib" template="adminLayout.xhtml">
+
+	<ui:define class="content" name="content">
+		<h:form id="form">
+			<p:dataTable id="tab" var="game" value="#{getGamesView.games}"
+				rowKey="#{player.id}" style="margin-bottom:40px" paginator="true"
+				paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15">
+
+				<p:column id="name" headerText="Name" sortBy="#{game.playername}">
+					<h:outputText value="#{game.playername}" />
+				</p:column>
+				<p:column id="date" headerText="Date"
+					sortBy="#{game.date}">
+					<h:outputText value="#{game.date}" />
+				</p:column>
+				<p:column id="bet" headerText="Bet"
+					sortBy="#{game.bet}">
+					<h:outputText value="#{game.bet}" />
+				</p:column>
+				<p:column id="isLost" headerText="Is Lost" sortBy="#{game.isLost}">
+					<h:outputText value="#{game.isLost}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

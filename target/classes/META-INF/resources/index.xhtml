@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8"></meta>
+	<link rel="stylesheet" href="css/stylesheet.css" />
+	<title>Login-Registration</title>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</h:head>
+
+<h:body>
+	<p:tabView class="tabView">
+		<p:tab title="Login">
+			<h:form>
+				<p:panel id="panel">
+					<p:messages id="msgs" />
+
+					<h:panelGrid columns="3" cellpadding="5">
+						<p:outputLabel for="username" value="Username: " />
+						<p:inputText id="username" value="#{loginRegisterView.username}"
+							required="true" label="Username">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="username" display="icon" />
+
+						<p:outputLabel for="password" value="Password: " />
+						<p:inputText id="password" value="#{loginRegisterView.password}"
+							required="true" label="Password">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="password" id="msgPassword" display="icon" />
+					</h:panelGrid>
+
+					<p:commandButton value="Login" update="panel" icon="ui-icon-check" 
+							ajax="false" action="#{loginRegisterView.login}" />
+				</p:panel>
+			</h:form>
+		</p:tab>
+		
+		<p:tab title="Registration">
+			<h:form>
+				<p:panel id="panel">
+					<p:messages id="msgs" />
+
+					<h:panelGrid columns="3" cellpadding="5">
+						<p:outputLabel for="name" value="Name: " />
+						<p:inputText id="name" value="#{loginRegisterView.name}"
+							required="true" label="Name">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="name" display="icon" />
+						
+						<p:outputLabel for="username" value="Username: " />
+						<p:inputText id="username" value="#{loginRegisterView.username}"
+							required="true" label="Username">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="username" display="icon" />
+
+						<p:outputLabel for="password" value="Password: " />
+						<p:inputText id="password" value="#{loginRegisterView.password}"
+							required="true" label="Password">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="password" id="msgPassword" display="icon" />
+						
+						<p:outputLabel for="email" value="Email: " />
+						<p:inputText id="email" value="#{loginRegisterView.email}"
+							required="true" label="Email">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="email" display="icon" />
+						
+						<p:outputLabel for="balance" value="Balance: " />
+						<p:inputText id="balance" value="#{loginRegisterView.balance}"
+							required="true" label="Balance">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="balance" display="icon" />
+
+					</h:panelGrid>
+
+					<p:commandButton value="Register" update="panel" icon="ui-icon-check" 
+							ajax="false" action="#{loginRegisterView.register}" />
+				</p:panel>
+			</h:form>
+		</p:tab>
+	</p:tabView>
+</h:body>
+</html>

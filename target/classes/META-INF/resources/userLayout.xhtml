@@ -13,12 +13,23 @@
 </h:head>
 <h:body>
 	<div class="container">
-		<header>HEADER</header>
-		<nav>NAV</nav>
+		<header>
+			<section>
+				<img id="img-1" src="images/headerImg.jpg" height="150" width="150" />
+				<div class="header-title"><br/>Welcome at the Roulett web app game</div>
+				<img id="img-2" src="images/headerImg.jpg" height="150" width="150" />
+			</section>
+		</header>
+		<nav>
+			<a class="nav-link" href="userHomePage.xhtml">Home Page</a>
+			<a class="nav-link" href="game.xhtml">Játék</a>
+			<a class="nav-link" href="depositMoney.xhtml">Befizetés</a>
+			<a class="nav-link" href="index.xhtml">Kilépés</a>
+		</nav>
 		<main>
 			<ui:insert name="content"></ui:insert>
 		</main>
-		<footer>FOOTER</footer>
+		<footer><div class="header-title"><br/>Roulett game web app footer</div></footer>
 	</div>
 </h:body>
 </html>

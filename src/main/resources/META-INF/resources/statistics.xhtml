@@ -10,43 +10,58 @@
 		<h:form id="form">
 			<div class="row">
 				<div class="row">
-					<h3>Bank:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Bank:</h3>
+							<h:outputText class="statistic" value="#{statisticsView.bank}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic" value="#{statisticsView.bank}" />
-			</div>
-			<div class="row">
 				<div class="row">
-					<h3>Profitable:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Profitable:</h3>
+							<h:outputText class="statistic"
+								value="#{statisticsView.isProfitable}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic"
-					value="#{statisticsView.isProfitable}" />
-			</div>
-			<div class="row">
 				<div class="row">
-					<h3>Total Loss:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Total Loss:</h3>
+							<h:outputText class="statistic"
+								value="#{statisticsView.totalLoss}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic" value="#{statisticsView.totalLoss}" />
-			</div>
-			<div class="row">
 				<div class="row">
-					<h3>Total Profit:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Total Profit:</h3>
+							<h:outputText class="statistic"
+								value="#{statisticsView.totalProfit}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic"
-					value="#{statisticsView.totalProfit}" />
-			</div>
-			<div class="row">
 				<div class="row">
-					<h3>Biggest Loss:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Biggest Loss:</h3>
+							<h:outputText class="statistic"
+								value="#{statisticsView.biggestLoss}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic"
-					value="#{statisticsView.biggestLoss}" />
-			</div>
-			<div class="row">
 				<div class="row">
-					<h3>Biggest Profit:</h3>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h3>Biggest Profit:</h3>
+							<h:outputText class="statistic"
+								value="#{statisticsView.biggestProfit}" />
+						</div>
+					</div>
 				</div>
-				<h:outputText class="statistic"
-					value="#{statisticsView.biggestProfit}" />
 			</div>
 		</h:form>
 	</ui:define>

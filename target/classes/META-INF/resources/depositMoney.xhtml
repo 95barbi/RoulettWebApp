@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
+
+	<ui:define class="content" name="content">
+		<h:form id="form">
+			<div class="row">
+				<div class="row">
+					<div class="row">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="txtName">Deposit: </label>
+									<p:inputText class="inputText" value="#{depositView.depoMoney}"
+										required="true" styleClass="form-control"
+										placeholder="Enter new deposit" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<p:commandButton styleClass="btn btn-sm btn-primary"
+						value="Save" action="#{depositView.addMoney}" ajax="false" />
+				</div>
+				<div class="row">
+					<div class="row">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="txtName">Withdrawal: </label>
+									<p:inputText class="inputText" value="#{depositView.widroMoney}"
+										required="true" styleClass="form-control"
+										placeholder="Enter new withdrawal" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<p:commandButton styleClass="btn btn-sm btn-primary"
+						value="Save" action="#{depositView.withdrawMoney}" ajax="false" />
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

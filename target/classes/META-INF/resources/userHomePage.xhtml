@@ -7,10 +7,55 @@
 	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
 
 	<ui:define name="breadcrumb">
-        <app:breadcrumb activePageTitle="Index Page"/>
-    </ui:define>
-	
+		<app:breadcrumb activePageTitle="Index Page" />
+	</ui:define>
+
 	<ui:define name="content">
-		<h1>Welcome at the User Home Page!</h1>
+		<h1>
+			<center>Welcome at the User Home Page!</center>
+		</h1>
+		<h:form id="form">
+			<div class="row">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h2>
+								<h:outputText value="Username: " />
+							</h2>
+							<h3>
+								<h:outputText value="#{homePageView.loggedInPlayer.username}"
+									styleClass="form-control" />
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h2>
+								<h:outputText value="Fullname: " />
+							</h2>
+							<h3>
+								<h:outputText value="#{homePageView.loggedInPlayer.name}"
+									styleClass="form-control" />
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<h2>
+								<h:outputText value="Balance: " />
+							</h2>
+							<h3>
+								<h:outputText value="#{homePageView.loggedInPlayer.balance}"
+									styleClass="form-control" />
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>

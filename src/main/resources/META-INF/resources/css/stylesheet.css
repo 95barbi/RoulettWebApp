@@ -152,6 +152,11 @@ dataTable {
 	border-radius: 0px;
 }
 
+.gameImg {
+	width: 80%;
+	height: auto;
+}
+
 .tg {
     width: 100%;
 }

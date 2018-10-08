@@ -123,6 +123,7 @@ public class LoginRegisterView extends BaseView {
 		player = new Player(name, username, email, password, balance, "USER");
 		repository.save(player);
 		
+		id = player.getId();
 		return this.redirect("userHomePage");
 	}
 

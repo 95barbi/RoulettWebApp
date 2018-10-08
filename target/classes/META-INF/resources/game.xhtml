@@ -10,13 +10,15 @@
 
 	<ui:define class="content" name="content">
 		<h:form>
-			<center>
-			<img id="gameImg" src="images/roulettTable.jpg" height="auto" width="60%" align="middle"/>
-			</center>
-			
+				<center>
+					<img id="gameImg" src="images/roulettTable.jpg" height="auto"
+						width="50%" align="middle" />
+				</center>
+
+
 			<h3>Numbers</h3>
-			<p:selectManyCheckbox id="grid"
-				value="#{gameView.selectedNumbers}" layout="grid" columns="6" >
+			<p:selectManyCheckbox id="grid" value="#{gameView.selectedNumbers}"
+				layout="grid" columns="6">
 				<f:selectItems value="#{gameView.numbers}" var="numbers"
 					itemLabel="#{numbers}" itemValue="#{numbers}" />
 			</p:selectManyCheckbox>

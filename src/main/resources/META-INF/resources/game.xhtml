@@ -16,36 +16,112 @@
 					value="Your Balance: #{homePageView.loggedInPlayer.balance}$"
 					class="balance" />
 			</h3>
-			
+
 			<center>
 				<img id="gameImg" src="images/roulettTable.jpg" height="auto"
 					width="55%" align="middle" />
 			</center>
+			
+			<br/>
+<center>
+			<h:panelGrid columns="5" cellpadding="20">
+				<p:selectCheckboxMenu id="number"
+					value="#{gameView.selectedNumbers}" label="Numbers" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.numbers}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="doublenumbers"
+					value="#{gameView.selectedDoubleNumbers}" label="Doubles" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.doubleNumbers}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="columns"
+					value="#{gameView.selectedColumns}" label="Columns" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.columns}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="dozens"
+					value="#{gameView.selectedDozens}" label="Dozens" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.dozens}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="colour"
+					value="#{gameView.selectedColours}" label="Colour" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.colours}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="parities"
+					value="#{gameView.selectedParities}" label="Parities" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.parities}" />
+				</p:selectCheckboxMenu>
+				
+				<p:selectCheckboxMenu id="halfs"
+					value="#{gameView.selectedHalfs}" label="Halfs" panelStyle="width:250px">
+					<f:selectItems value="#{gameView.halfs}" />
+				</p:selectCheckboxMenu>
+			</h:panelGrid>
+			</center>
 
-			<h3>Numbers</h3>
-			<p:selectManyCheckbox id="grid" value="#{gameView.selectedNumbers}"
-				layout="grid" columns="6">
-				<f:selectItems value="#{gameView.numbers}" var="numbers"
-					itemLabel="#{numbers}" itemValue="#{numbers}" />
-			</p:selectManyCheckbox>
+			<center><p:commandButton value="Play" update="displayItems"
+				oncomplete="PF('itemDialog').show()" action="#{gameView.play}" style="margin-top:10px;" /></center>
 
-			<p:separator />
-
-			<p:commandButton value="Submit" update="display"
-				oncomplete="PF('dlg').show()" icon="ui-icon-check"
-				action="#{gameView.play}" />
-
-			<p:dialog header="Values" modal="true" showEffect="clip"
-				widgetVar="dlg" resizable="false">
-				<p:outputPanel id="display">
-					<p:dataList value="#{gameView.selectedNumbers}" var="numbers">
+			<p:dialog header="Selected Items" modal="true" showEffect="fade"
+				hideEffect="fade" widgetVar="itemDialog" width="250">
+				<p:outputPanel id="displayItems">
+					<p:dataList value="#{gameView.selectedNumbers}" var="number"
+						emptyMessage="No number selected" style="margin-bottom: 10px;">
 						<f:facet name="header">
-                    Numbers
-                </f:facet>
-                #{numbers}
-            </p:dataList>
+		                    Numbers:
+		                </f:facet>
+		                #{number}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedDoubleNumbers}" var="doubles"
+						emptyMessage="No double selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Doubles:
+		                </f:facet>
+		                #{doubles}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedColumns}" var="columns"
+						emptyMessage="No column selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Columns:
+		                </f:facet>
+		                #{columns}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedDozens}" var="dozens"
+						emptyMessage="No dozen selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Dozens:
+		                </f:facet>
+		                #{dozens}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedColours}" var="colours"
+						emptyMessage="No colour selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Colours:
+		                </f:facet>
+		                #{colours}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedParities}" var="parities"
+						emptyMessage="No parity selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Parities:
+		                </f:facet>
+		                #{parities}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedHalfs}" var="halfs"
+						emptyMessage="No half selected" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Halfs:
+		                </f:facet>
+		                #{halfs}
+		            </p:dataList>
 				</p:outputPanel>
 			</p:dialog>
+
+
+
 		</h:form>
 	</ui:define>
 </ui:composition>

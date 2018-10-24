@@ -39,10 +39,6 @@ commandButton {
 	width: 100px;
 }
 
-inputText {
-	width: auto;
-}
-
 section {
 	display: inline-grid;
 	grid-template-columns: auto 1000px auto;
@@ -50,8 +46,10 @@ section {
 	vertical-align: middle;
 }
 
-td {
-	max-width: 50px;
+h3 {
+	font-size: larger;
+	font-family: Arial;
+	text-transform: uppercase;
 }
 
 table, tbody, tr, td {
@@ -60,22 +58,8 @@ table, tbody, tr, td {
 	text-align: center;
 }
 
-table {
-	text-align: center;
-}
-
-tbody {
-	text-align: center;
-}
-
-tr {
-	text-align: center;
-}
-
-h3 {
-	font-size: larger;
-	font-family: Arial;
-	text-transform: uppercase;
+td {
+	max-width: 50px;
 }
 
 dataTable {
@@ -140,10 +124,6 @@ dataTable {
 	text-align: right;
 }
 
-.center {
-	text-align: center;
-}
-
 .row {
 	width: 100%;
 	padding: 0.6em;
@@ -171,19 +151,6 @@ dataTable {
 	font-family: Arial;
 }
 
-.grid-container {
-	display: grid;
-	grid-template-columns: auto 100px;
-	background-color: #2196F3;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
-
-.grid-item {
-	text-align: center;
-}
-
 .gameButton {
 	width: 100%;
 	height: 100%;
@@ -207,14 +174,27 @@ dataTable {
 	background: black;
 }
 
-.gamePanel {
-	width: 100%;
-	text-align: center;
+.gameButton:active, .redGameButton:active, .blackGameButton:active {
+	background: blue;
+	background-color: blue;
+	color: blue;
 }
 
 .gameTable {
 	width: 800px;
 	height: 300px;
 	background-color: #006400;
+	text-align: center;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	background-color: #2196F3;
+	padding: 0;
+	margin: 0;
+}
+
+.grid-item {
 	text-align: center;
 }

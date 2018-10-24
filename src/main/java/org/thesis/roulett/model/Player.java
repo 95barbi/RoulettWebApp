@@ -139,6 +139,10 @@ public class Player {
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
+	
+	public void addGame(Game game) {
+		games.add(game);
+	}
 
 //	@Override
 //	public String toString() {
@@ -146,9 +150,5 @@ public class Player {
 //				+ password + ", balance=" + balance + ", role=" + role + ", isBroken=" + isBroken + ", games=" + games
 //				+ "]";
 //	}
-	
-	public void addGame(Game game) {
-		games.add(game);
-	}
-	
+
 }

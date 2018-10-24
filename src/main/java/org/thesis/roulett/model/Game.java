@@ -104,5 +104,5 @@ public class Game {
 //		return "Game [id=" + id + ", playername=" + playername + ", date=" + date + ", bet=" + bet + ", isLost="
 //				+ isLost + ", player=" + player + "]";
 //	}
-	
+
 }

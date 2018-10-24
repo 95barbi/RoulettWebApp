@@ -6,8 +6,6 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
 
-	<link rel="stylesheet" href="css/stylesheet.css" />
-
 	<ui:define class="content" name="content">
 
 		<h3>
@@ -16,11 +14,56 @@
 				class="balance" />
 		</h3>
 
+		<!-- <p:layout style="min-width:400px;min-height:200px;">
+			<p:layoutUnit position="west" resizable="true" size="100"
+				minSize="40" maxSize="200">
+        		West
+    		</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+
+			</p:layoutUnit>
+		</p:layout>  -->
+
+		<h:form>
+			<h:outputText value="Font:" />
+			<p:selectManyButton value="#{selectManyView.selectedOptions}">
+				<f:selectItem itemLabel="b" itemValue="b" />
+				<f:selectItem itemLabel="u" itemValue="u" />
+				<f:selectItem itemLabel="i" itemValue="i" />
+			</p:selectManyButton>
+			<br />
+			<p:selectManyButton value="#{selectManyView.selectedOptions}">
+				<table>
+					<tbody>
+						<tr>
+							<td><f:selectItem itemLabel="g" itemValue="g" /></td>
+							<td><f:selectItem itemLabel="f" itemValue="f" /></td>
+							<td><f:selectItem itemLabel="d" itemValue="d" /></td><br/>
+						</tr>
+						<tr>
+							<td><f:selectItem itemLabel="b" itemValue="b" /></td>
+							<td><f:selectItem itemLabel="u" itemValue="u" /></td>
+							<td><f:selectItem itemLabel="i" itemValue="i" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</p:selectManyButton>
+
+			<p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+			<p:spacer />
+
+			<h:outputText value="Selected:" />
+			<p:dataList id="display" value="#{selectManyView.selectedOptions}"
+				var="font" emptyMessage="No fonts selected">
+				<h:outputText value="#{font}" style="font-weight: bold" />
+			</p:dataList>
+		</h:form>
+
 		<div class="grid-container">
 			<div class="grid-item">
-				<div class="gameTable">
-					<br />
-					<br />
+				<!-- <div class="gameTable">
+					<br /> <br />
 					<table>
 						<tbody>
 							<tr>
@@ -135,11 +178,13 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
+				</div>  -->
 			</div>
 
 			<div class="grid-item">
-				<h2><h:outputText value="Tétek:" /></h2>
+				<h2>
+					<h:outputText value="Tétek:" />
+				</h2>
 			</div>
 
 		</div>

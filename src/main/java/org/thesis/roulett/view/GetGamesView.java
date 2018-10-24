@@ -9,15 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thesis.roulett.model.Game;
 import org.thesis.roulett.repository.GameRepository;
+import org.thesis.roulett.service.GameService;
 
 @Component
 @ViewScoped
 public class GetGamesView extends BaseView {
-
-	private List<Game> games;
+	
+//	@Autowired
+//	private GameRepository repository;
 	
 	@Autowired
-	private GameRepository repository;
+	private GameService service;
+
+	private List<Game> games;
 	
 	public GetGamesView() {
 		super();
@@ -25,7 +29,8 @@ public class GetGamesView extends BaseView {
 	
 	@PostConstruct
 	public void init() {
-		games = repository.findAll();
+//		games = repository.findAll();
+		games = service.getAllGames();
 	}
 
 	public List<Game> getGames() {

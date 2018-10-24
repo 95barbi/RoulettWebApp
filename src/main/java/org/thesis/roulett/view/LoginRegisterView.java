@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thesis.roulett.model.Player;
 import org.thesis.roulett.repository.PlayerRepository;
+import org.thesis.roulett.service.PlayerService;
 
 @Component
 @ViewScoped
@@ -22,22 +23,23 @@ public class LoginRegisterView extends BaseView {
 	
 	private static Long id;
 	
+//	@Autowired
+//	private PlayerRepository repository;
+	
 	@Autowired
-	private PlayerRepository repository;
+	private PlayerService service;
 	
 	public LoginRegisterView() {
 		super();
 	}
 
-	public LoginRegisterView(String username, String password, String email, String name, int balance,
-			PlayerRepository repository) {
+	public LoginRegisterView(String username, String password, String email, String name, int balance) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.name = name;
 		this.balance = balance;
-		this.repository = repository;
 	}
 	
 	@PostConstruct
@@ -85,24 +87,17 @@ public class LoginRegisterView extends BaseView {
 		this.balance = balance;
 	}
 
-	public PlayerRepository getRepositor() {
-		return repository;
-	}
-
-	public void setRepositor(PlayerRepository repository) {
-		this.repository = repository;
-	}
-	
 	public static Player getPlayer() {
 		return player;
 	}
 
 	public void setPlayer(Player player) {
-		this.player = player;
+		LoginRegisterView.player = player;
 	}
 
 	public String login() {
-		player = repository.findPlayerIfRegistered(username, password);
+//		player = repository.findPlayerIfRegistered(username, password);
+		player = service.getUserIfRegistered(username, password);
 		
 		if (player != null) {
 			if (player.getRole().equals("ADMIN")) {
@@ -110,6 +105,10 @@ public class LoginRegisterView extends BaseView {
 			} else {
 				System.out.println("loggedInPlayer: " + player.toString());
 				id = player.getId();
+				
+				//new
+				service.login(player);
+				
 				return this.redirect("userHomePage");
 			}
 		} else {
@@ -121,9 +120,14 @@ public class LoginRegisterView extends BaseView {
 	
 	public String register() {
 		player = new Player(name, username, email, password, balance, "USER");
-		repository.save(player);
+//		repository.save(player);
+		service.addPlayer(player);
 		
 		id = player.getId();
+		
+		//new
+		service.login(player);
+		
 		return this.redirect("userHomePage");
 	}
 

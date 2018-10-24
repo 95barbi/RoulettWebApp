@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thesis.roulett.model.Player;
 import org.thesis.roulett.repository.PlayerRepository;
+import org.thesis.roulett.service.PlayerService;
 
 @Component
 @ViewScoped
 public class DepositView extends BaseView {
 
+//	@Autowired
+//	private PlayerRepository repository;
+	
 	@Autowired
-	private PlayerRepository repository;
+	private PlayerService service;
 	
 	private Player player;
 	
@@ -56,7 +60,8 @@ public class DepositView extends BaseView {
 	public String addMoney() {
 		player.setBalance(player.getBalance() + depoMoney);
 		
-		repository.save(player);
+//		repository.save(player);
+		service.updatePlayer(player);
 		
 		return this.redirect("userHomePage");
 	}
@@ -64,17 +69,10 @@ public class DepositView extends BaseView {
 	public String withdrawMoney() {
 		player.setBalance(player.getBalance() - widroMoney);
 		
-		repository.save(player);
+//		repository.save(player);
+		service.updatePlayer(player);
 		
 		return this.redirect("userHomePage");
 	}
 
-	public PlayerRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(PlayerRepository repository) {
-		this.repository = repository;
-	}
-	
 }

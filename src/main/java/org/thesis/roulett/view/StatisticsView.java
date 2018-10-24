@@ -11,6 +11,8 @@ import org.thesis.roulett.model.Game;
 import org.thesis.roulett.model.Player;
 import org.thesis.roulett.repository.GameRepository;
 import org.thesis.roulett.repository.PlayerRepository;
+import org.thesis.roulett.service.GameService;
+import org.thesis.roulett.service.PlayerService;
 
 @Component
 @ViewScoped
@@ -21,6 +23,12 @@ public class StatisticsView extends BaseView {
 
 	@Autowired
 	private PlayerRepository playerRepository;
+	
+	@Autowired
+	private PlayerService playerService;
+	
+	@Autowired
+	private GameService gameService;
 
 	private List<Game> games;
 	private List<Player> players;

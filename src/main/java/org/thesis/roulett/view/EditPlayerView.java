@@ -7,15 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thesis.roulett.model.Player;
 import org.thesis.roulett.repository.PlayerRepository;
+import org.thesis.roulett.service.PlayerService;
 
 @Component
 @ViewScoped
 public class EditPlayerView extends BaseView {
-
-	private Player player;
+	
+//	@Autowired
+//	private PlayerRepository repository;
 	
 	@Autowired
-	private PlayerRepository repository;
+	private PlayerService service;
+
+	private Player player;
 
 	public EditPlayerView() {
 		super();
@@ -35,7 +39,8 @@ public class EditPlayerView extends BaseView {
 	}
 
 	public String save() {
-		repository.save(player);
+//		repository.save(player);
+		service.updatePlayer(player);
 		
 		return this.redirect("getPlayers");
 	}

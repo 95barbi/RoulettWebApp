@@ -10,18 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thesis.roulett.model.Player;
 import org.thesis.roulett.repository.PlayerRepository;
+import org.thesis.roulett.service.PlayerService;
 
 @Component
 @ViewScoped
 public class GetPlayersView extends BaseView {
+	
+//	@Autowired
+//	private PlayerRepository repository;
+	
+	@Autowired
+	private PlayerService service;
 
 	private List<Player> players;
 	private Player selectedPlayer;
 	
 	private Boolean isDisabled = true;
-	
-	@Autowired
-	private PlayerRepository repository;
 	
 	public GetPlayersView() {
 		super();
@@ -29,7 +33,8 @@ public class GetPlayersView extends BaseView {
 	
 	@PostConstruct
 	public void init() {
-		players = repository.findUsers();
+//		players = repository.findUsers();
+		players = service.getAllUsers();
 	}
 
 	public void onRowSelect(SelectEvent event) {
@@ -46,14 +51,6 @@ public class GetPlayersView extends BaseView {
 
 	public void setPlayers(List<Player> players) {
 		this.players = players;
-	}
-
-	public PlayerRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(PlayerRepository repository) {
-		this.repository = repository;
 	}
 
 	public Player getSelectedPlayer() {
@@ -73,7 +70,9 @@ public class GetPlayersView extends BaseView {
 	}
 	
 	public void deletePlayer() {
-		repository.delete(selectedPlayer);
+//		repository.delete(selectedPlayer);
+		
+		service.deleteUser(selectedPlayer);
 		players.remove(selectedPlayer);
 	}
 	

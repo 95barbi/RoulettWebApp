@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
+
+	<ui:define class="content" name="content">
+
+		<h3>
+			<h:outputText
+				value="Your Balance: #{homePageView.loggedInPlayer.balance}$"
+				class="balance" />
+		</h3>
+
+		<!-- <p:layout style="min-width:400px;min-height:200px;">
+			<p:layoutUnit position="west" resizable="true" size="100"
+				minSize="40" maxSize="200">
+        		West
+    		</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+
+			</p:layoutUnit>
+		</p:layout>  -->
+
+		<h:form>
+			<h:outputText value="Font:" />
+			<p:selectManyButton value="#{selectManyView.selectedOptions}">
+				<f:selectItem itemLabel="b" itemValue="b" />
+				<f:selectItem itemLabel="u" itemValue="u" />
+				<f:selectItem itemLabel="i" itemValue="i" />
+			</p:selectManyButton>
+			<br />
+			<p:selectManyButton value="#{selectManyView.selectedOptions}">
+				<table>
+					<tbody>
+						<tr>
+							<td><f:selectItem itemLabel="g" itemValue="g" /></td>
+							<td><f:selectItem itemLabel="f" itemValue="f" /></td>
+							<td><f:selectItem itemLabel="d" itemValue="d" /></td><br/>
+						</tr>
+						<tr>
+							<td><f:selectItem itemLabel="b" itemValue="b" /></td>
+							<td><f:selectItem itemLabel="u" itemValue="u" /></td>
+							<td><f:selectItem itemLabel="i" itemValue="i" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</p:selectManyButton>
+
+			<p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+			<p:spacer />
+
+			<h:outputText value="Selected:" />
+			<p:dataList id="display" value="#{selectManyView.selectedOptions}"
+				var="font" emptyMessage="No fonts selected">
+				<h:outputText value="#{font}" style="font-weight: bold" />
+			</p:dataList>
+		</h:form>
+
+		<div class="grid-container">
+			<div class="grid-item">
+				<!-- <div class="gameTable">
+					<br /> <br />
+					<table>
+						<tbody>
+							<tr>
+								<td></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="3" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="6" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="9" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="12" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="15" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="18" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="21" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="24" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="27" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="30" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="33" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="36" /></td>
+								<td><p:commandButton class="gameButton" value="D" /></td>
+							</tr>
+							<tr>
+								<td><p:commandButton class="gameButton" value="0" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="2" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="5" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="8" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="11" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="14" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="17" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="20" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="23" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="26" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="29" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="32" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="35" /></td>
+								<td><p:commandButton class="gameButton" value="M" /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="1" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="4" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="7" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="10" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="13" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="16" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="19" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="22" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="25" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="28" /></td>
+								<td><p:commandButton class="gameButton redGameButton"
+										value="31" /></td>
+								<td><p:commandButton class="gameButton blackGameButton"
+										value="34" /></td>
+								<td><p:commandButton class="gameButton" value="P" /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="4"><p:commandButton class="gameButton"
+										value="1st12"></p:commandButton></td>
+								<td colspan="4"><p:commandButton class="gameButton"
+										value="2nd12"></p:commandButton></td>
+								<td colspan="4"><p:commandButton class="gameButton"
+										value="3rdt12"></p:commandButton></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="1to18"></p:commandButton></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="EVEN"></p:commandButton></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="RED"></p:commandButton></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="BLACK"></p:commandButton></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="ODD"></p:commandButton></td>
+								<td colspan="2"><p:commandButton class="gameButton"
+										value="19to36"></p:commandButton></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>  -->
+			</div>
+
+			<div class="grid-item">
+				<h2>
+					<h:outputText value="Tétek:" />
+				</h2>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<h2>
+						<h:outputText value="Bet: " />
+						<p:inputText value="#{gameView.bet}" styleClass="form-control" />
+					</h2>
+				</div>
+			</div>
+		</div>
+
+		<center>
+			<p:commandButton id="btnPlay" styleClass="btn" value="Play"
+				action="#{gameView.play}" />
+		</center>
+	</ui:define>
+</ui:composition>

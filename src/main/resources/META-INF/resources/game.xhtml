@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
+
+	<link rel="stylesheet" href="css/stylesheet.css" />
+
+	<ui:define class="content" name="content">
+		<h:form>
+
+			<h3>
+				<h:outputText
+					value="Your Balance: #{homePageView.loggedInPlayer.balance}$"
+					class="balance" />
+			</h3>
+			
+			<center>
+				<img id="gameImg" src="images/roulettTable.jpg" height="auto"
+					width="55%" align="middle" />
+			</center>
+
+			<h3>Numbers</h3>
+			<p:selectManyCheckbox id="grid" value="#{gameView.selectedNumbers}"
+				layout="grid" columns="6">
+				<f:selectItems value="#{gameView.numbers}" var="numbers"
+					itemLabel="#{numbers}" itemValue="#{numbers}" />
+			</p:selectManyCheckbox>
+
+			<p:separator />
+
+			<p:commandButton value="Submit" update="display"
+				oncomplete="PF('dlg').show()" icon="ui-icon-check"
+				action="#{gameView.play}" />
+
+			<p:dialog header="Values" modal="true" showEffect="clip"
+				widgetVar="dlg" resizable="false">
+				<p:outputPanel id="display">
+					<p:dataList value="#{gameView.selectedNumbers}" var="numbers">
+						<f:facet name="header">
+                    Numbers
+                </f:facet>
+                #{numbers}
+            </p:dataList>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>

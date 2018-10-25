@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:app="http://app.lippert.hu/taglib" template="userLayout.xhtml">
+
+	<ui:define name="breadcrumb">
+		<app:breadcrumb activePageTitle="Index Page" />
+	</ui:define>
+
+	<ui:define name="content">
+		<h1>
+			<center>A játék végeredménye:</center>
+		</h1>
+		<h:form id="form">
+			<h:panelGrid columns="4" cellpadding="30">
+				<h:outputText value="Régi egyenleg: #{outcome.oldBalance}"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Új egyenleg: #{outcome.loggedInPlayer.balance}"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Nyeremény: #{outcome.won}$"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Veszteség: #{outcome.lost}$"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Tét: #{outcome.bet}$"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Teljes tét: #{outcome.totalBet}$"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Golyó száma: #{outcome.ballNumber}"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+				<h:outputText value="Golyó színe: #{outcome.ballColour}"
+					style="font-weight:bold; font-size: large; font-family: Arial; text-transform: uppercase;" />
+			</h:panelGrid>
+
+			<p:dataList value="#{outcome.goodTips}" var="tip" type="ordered">
+				<f:facet name="header">
+		            Helyes tippek:
+		        </f:facet>
+		        #{tip}
+		    </p:dataList>
+
+			<br />
+			<p:dataList value="#{outcome.badTips}" var="tip" type="ordered">
+				<f:facet name="header">
+		            Helytelen tippek:
+		        </f:facet>
+		        #{tip}
+		    </p:dataList>
+
+			<br />
+			<br />
+			<center>
+				<p:commandButton value="Új játék" action="#{outcome.playAgain}"
+					style="margin-top:10px; width: 200px; 
+					height: 50px; border-radius: 16px; border: 2px solid LightSteelBlue;" />
+			</center>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

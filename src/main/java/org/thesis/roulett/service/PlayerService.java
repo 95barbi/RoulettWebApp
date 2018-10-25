@@ -51,4 +51,5 @@ public class PlayerService implements Serializable {
 	public Player getUserIfRegistered(String username, String password) {
 		return repository.findPlayerIfRegistered(username, password);
 	}
+	
 }

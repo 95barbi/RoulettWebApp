@@ -10,10 +10,9 @@
 
 	<ui:define class="content" name="content">
 		<h:form>
-
 			<h3>
 				<h:outputText
-					value="Your Balance: #{homePageView.loggedInPlayer.balance}$"
+					value="Az egyenleged: #{homePageView.loggedInPlayer.balance}$"
 					class="balance" />
 			</h3>
 
@@ -21,106 +20,167 @@
 				<img id="gameImg" src="images/roulettTable.jpg" height="auto"
 					width="55%" align="middle" />
 			</center>
-			
-			<br/>
-<center>
-			<h:panelGrid columns="5" cellpadding="20">
-				<p:selectCheckboxMenu id="number"
-					value="#{gameView.selectedNumbers}" label="Numbers" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.numbers}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="doublenumbers"
-					value="#{gameView.selectedDoubleNumbers}" label="Doubles" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.doubleNumbers}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="columns"
-					value="#{gameView.selectedColumns}" label="Columns" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.columns}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="dozens"
-					value="#{gameView.selectedDozens}" label="Dozens" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.dozens}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="colour"
-					value="#{gameView.selectedColours}" label="Colour" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.colours}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="parities"
-					value="#{gameView.selectedParities}" label="Parities" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.parities}" />
-				</p:selectCheckboxMenu>
-				
-				<p:selectCheckboxMenu id="halfs"
-					value="#{gameView.selectedHalfs}" label="Halfs" panelStyle="width:250px">
-					<f:selectItems value="#{gameView.halfs}" />
-				</p:selectCheckboxMenu>
-			</h:panelGrid>
+			<br />
+
+			<center>
+				<h:panelGrid columns="4" cellpadding="15">
+					<p:selectCheckboxMenu id="number"
+						value="#{gameView.selectedNumbers}" label="Számok"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.numbers}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="doublenumbers"
+						value="#{gameView.selectedDoubleNumbers}" label="Duplák"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.doubleNumbers}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="triplenumbers"
+						value="#{gameView.selectedTripleNumbers}" label="Számhármasok"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.tripleNumbers}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="quadruplenumbers"
+						value="#{gameView.selectedQuadrupleNumbers}" label="Számnégyesek"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.quadrupleNumbers}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="sixfoldnumbers"
+						value="#{gameView.selectedSixfoldNumbers}" label="Számhatosok"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.sixfoldNumbers}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="columns"
+						value="#{gameView.selectedColumns}" label="Oszlopok"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.columns}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="dozens"
+						value="#{gameView.selectedDozens}" label="Tucatok"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.dozens}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="colour"
+						value="#{gameView.selectedColours}" label="Színek"
+						style="width:200px;" >
+						<f:selectItems value="#{gameView.colours}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="parities"
+						value="#{gameView.selectedParities}" label="Paritások"
+						style="width:200px;">
+						<f:selectItems value="#{gameView.parities}" />
+					</p:selectCheckboxMenu>
+
+					<p:selectCheckboxMenu id="halfs" value="#{gameView.selectedHalfs}"
+						label="Felek" style="width:200px;">
+						<f:selectItems value="#{gameView.halfs}" />
+					</p:selectCheckboxMenu>
+				</h:panelGrid>
 			</center>
 
-			<center><p:commandButton value="Play" update="displayItems"
-				oncomplete="PF('itemDialog').show()" action="#{gameView.play}" style="margin-top:10px;" /></center>
+			<h:outputLabel for="bet" value="Tét: " style="font-weight:bold" />
+			<p:inputText id="bet" value="#{gameView.bet}" />
 
-			<p:dialog header="Selected Items" modal="true" showEffect="fade"
-				hideEffect="fade" widgetVar="itemDialog" width="250">
+			<p:commandButton value="Előnézet" update="displayItems"
+				oncomplete="PF('itemDialog').show()"
+				style="margin-left: 30px; margin-top:10px; border-radius: 16px; 
+					border: 2px solid LightSteelBlue;" />
+
+			<center>
+				<p:messages id="messages" showDetail="true" closable="true">
+					<p:autoUpdate />
+				</p:messages>
+				<p:commandButton value="Játék!" action="#{gameView.play}"
+					style="margin-top:10px; width: 100px; 
+					height: 50px; border-radius: 16px; border: 2px solid LightSteelBlue;" />
+			</center>
+
+			<p:dialog header="Kötött fogadások:" modal="true" showEffect="fade"
+				hideEffect="fade" widgetVar="itemDialog" width="500" height="400">
 				<p:outputPanel id="displayItems">
+					<h:outputLabel value="Tét: #{gameView.bet}$"
+						style="font-weight:bold; margin-bottom: 10px;" />
 					<p:dataList value="#{gameView.selectedNumbers}" var="number"
-						emptyMessage="No number selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs szám kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Numbers:
+		                    Számok:
 		                </f:facet>
 		                #{number}
 		            </p:dataList>
 					<p:dataList value="#{gameView.selectedDoubleNumbers}" var="doubles"
-						emptyMessage="No double selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs dupla kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Doubles:
+		                    Duplák:
 		                </f:facet>
 		                #{doubles}
 		            </p:dataList>
-					<p:dataList value="#{gameView.selectedColumns}" var="columns"
-						emptyMessage="No column selected" style="margin-bottom: 10px;">
+					<p:dataList value="#{gameView.selectedTripleNumbers}" var="triples"
+						emptyMessage="Nincs számhármas kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Columns:
+		                    Számhármasok:
+		                </f:facet>
+		                #{triples}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedQuadrupleNumbers}"
+						var="quadruples" emptyMessage="Nincs számnégyes kiválasztva"
+						style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Számnégyesek:
+		                </f:facet>
+		                #{quadruples}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedSixfoldNumbers}"
+						var="sixfolds" emptyMessage="Nincs számhatos kiválasztva"
+						style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Számhatosok:
+		                </f:facet>
+		                #{sixfolds}
+		            </p:dataList>
+					<p:dataList value="#{gameView.selectedColumns}" var="columns"
+						emptyMessage="Nincs oszlok kiválasztva" style="margin-bottom: 10px;">
+						<f:facet name="header">
+		                    Oszlopok:
 		                </f:facet>
 		                #{columns}
 		            </p:dataList>
 					<p:dataList value="#{gameView.selectedDozens}" var="dozens"
-						emptyMessage="No dozen selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs tucat kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Dozens:
+		                    Tucatok:
 		                </f:facet>
 		                #{dozens}
 		            </p:dataList>
 					<p:dataList value="#{gameView.selectedColours}" var="colours"
-						emptyMessage="No colour selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs szín kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Colours:
+		                    Színek:
 		                </f:facet>
 		                #{colours}
 		            </p:dataList>
 					<p:dataList value="#{gameView.selectedParities}" var="parities"
-						emptyMessage="No parity selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs paritás kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Parities:
+		                    Paritások:
 		                </f:facet>
 		                #{parities}
 		            </p:dataList>
 					<p:dataList value="#{gameView.selectedHalfs}" var="halfs"
-						emptyMessage="No half selected" style="margin-bottom: 10px;">
+						emptyMessage="Nincs fél kiválasztva" style="margin-bottom: 10px;">
 						<f:facet name="header">
-		                    Halfs:
+		                    Felek:
 		                </f:facet>
 		                #{halfs}
 		            </p:dataList>
 				</p:outputPanel>
 			</p:dialog>
-
-
 
 		</h:form>
 	</ui:define>

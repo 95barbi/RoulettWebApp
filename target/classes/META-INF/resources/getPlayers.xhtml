@@ -16,40 +16,40 @@
 				<p:ajax event="rowSelect" listener="#{getPlayersView.onRowSelect}"
 					update="form:btnDelete,form:btnEdit" />
 
-				<p:column id="name" headerText="Name" sortBy="#{player.name}">
+				<p:column id="name" headerText="Név" sortBy="#{player.name}">
 					<h:outputText value="#{player.name}" />
 				</p:column>
-				<p:column id="username" headerText="Username"
+				<p:column id="username" headerText="Felhasználónév"
 					sortBy="#{player.username}">
 					<h:outputText value="#{player.username}" />
 				</p:column>
-				<p:column id="email" headerText="Email" sortBy="#{player.email}">
+				<p:column id="email" headerText="E-mail" sortBy="#{player.email}">
 					<h:outputText value="#{player.email}" />
 				</p:column>
-				<p:column id="password" headerText="Password"
+				<p:column id="password" headerText="Jelszó"
 					sortBy="#{player.password}">
 					<h:outputText value="#{player.password}" />
 				</p:column>
-				<p:column id="balance" headerText="Balance"
+				<p:column id="balance" headerText="Egyenleg"
 					sortBy="#{player.balance}">
 					<h:outputText value="#{player.balance}$" />
 				</p:column>
-				<p:column id="isBroken" headerText="Is Broken"
+				<p:column id="isBroken" headerText="Tönkrmeent-e"
 					sortBy="#{player.isBroken}">
 					<h:outputText value="#{player.isBroken}" />
 				</p:column>
 			</p:dataTable>
 			<div>
 				<p:commandButton id="btnEdit" styleClass="btn"
-					value="Edit" action="#{getPlayersView.editPlayer}"
+					value="Szerkesztés" action="#{getPlayersView.editPlayer}"
 					update="form:tab" disabled="#{getPlayersView.isDisabled}">
 				</p:commandButton>
 				<p:commandButton id="btnDelete" styleClass="btn"
-					value="Delete" actionListener="#{getPlayersView.deletePlayer}"
+					value="Törlés" actionListener="#{getPlayersView.deletePlayer}"
 					update="form:tab" disabled="#{getPlayersView.isDisabled}">
 				</p:commandButton>
 				<p:commandButton id="btnAdd" styleClass="btn"
-					value="Add" action="#{getPlayersView.addPlayer}">
+					value="Hozzáadás" action="#{getPlayersView.addPlayer}">
 				</p:commandButton>
 			</div>
 		</h:form>

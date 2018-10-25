@@ -50,11 +50,11 @@ public class Populator {
 		usernames = Arrays.asList("vaulter", "changtse", "kyanite", "carefree", "rem", "frosty", "boxing", "chowder",
 				"rocking", "pussface", "endless", "arede", "rentot");
 
-		for (int i = 0; i < 40; ++i) {
+		for (int i = 0; i < 10; ++i) {
 			String name = lastnames.get(random.nextInt(lastnames.size())) + " "
 					+ firstnames.get(random.nextInt(firstnames.size()));
 			String username = usernames.get(random.nextInt(usernames.size()));
-			String password = "123456"+username;
+			String password = "123456";
 			String email = username + "@gmail.com";
 			int balance = random.nextInt(1000);
 
@@ -65,7 +65,7 @@ public class Populator {
 			playerRepository.save(player);
 		}
 
-		for (int j = 0; j < 50; ++j) {
+		for (int j = 0; j < 10; ++j) {
 			boolean isLost = random.nextBoolean();
 			String date = randomDate().toString();
 			int bet = random.nextInt(1000);

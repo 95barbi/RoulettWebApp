@@ -21,5 +21,9 @@ public class GameService implements Serializable {
 	public Game getGameById(Long id) {
 		return repository.findById(id).get();
 	}
+	
+	public void save(Game game) {
+		repository.save(game);
+	}
 
 }

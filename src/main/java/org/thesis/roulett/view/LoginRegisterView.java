@@ -23,9 +23,6 @@ public class LoginRegisterView extends BaseView {
 	
 	private static Long id;
 	
-//	@Autowired
-//	private PlayerRepository repository;
-	
 	@Autowired
 	private PlayerService service;
 	
@@ -96,7 +93,6 @@ public class LoginRegisterView extends BaseView {
 	}
 
 	public String login() {
-//		player = repository.findPlayerIfRegistered(username, password);
 		player = service.getUserIfRegistered(username, password);
 		
 		if (player != null) {
@@ -105,8 +101,6 @@ public class LoginRegisterView extends BaseView {
 			} else {
 				System.out.println("loggedInPlayer: " + player.toString());
 				id = player.getId();
-				
-				//new
 				service.login(player);
 				
 				return this.redirect("userHomePage");
@@ -120,12 +114,9 @@ public class LoginRegisterView extends BaseView {
 	
 	public String register() {
 		player = new Player(name, username, email, password, balance, "USER");
-//		repository.save(player);
 		service.addPlayer(player);
 		
 		id = player.getId();
-		
-		//new
 		service.login(player);
 		
 		return this.redirect("userHomePage");

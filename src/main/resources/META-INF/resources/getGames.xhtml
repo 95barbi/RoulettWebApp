@@ -12,18 +12,18 @@
 				rowKey="#{player.id}" style="margin-bottom:40px" paginator="true"
 				paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15">
 
-				<p:column id="name" headerText="Name" sortBy="#{game.playername}">
+				<p:column id="name" headerText="Név" sortBy="#{game.playername}">
 					<h:outputText value="#{game.playername}" />
 				</p:column>
-				<p:column id="date" headerText="Date"
+				<p:column id="date" headerText="Dátum"
 					sortBy="#{game.date}">
 					<h:outputText value="#{game.date}" />
 				</p:column>
-				<p:column id="bet" headerText="Bet"
+				<p:column id="bet" headerText="Tét"
 					sortBy="#{game.bet}">
 					<h:outputText value="#{game.bet}$" />
 				</p:column>
-				<p:column id="isLost" headerText="Is Lost" sortBy="#{game.isLost}">
+				<p:column id="isLost" headerText="Vesztett-e" sortBy="#{game.isLost}">
 					<h:outputText value="#{game.isLost}" />
 				</p:column>
 			</p:dataTable>

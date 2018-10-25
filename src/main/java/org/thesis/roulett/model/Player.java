@@ -143,6 +143,14 @@ public class Player {
 	public void addGame(Game game) {
 		games.add(game);
 	}
+	
+	public void increaseBalance(int num) {
+		balance += num;
+	}
+	
+	public void decreaseBalance(int num) {
+		balance -= num;
+	}
 
 //	@Override
 //	public String toString() {

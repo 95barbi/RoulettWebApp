@@ -24,7 +24,7 @@ public class JoinFacesExampleApplication implements CommandLineRunner {
 		Player player = new Player(1L, "Borbely Balint", "95barbi", "95barbi@gmail.com", "123456", 10000, "ADMIN");
 		playerRepository.save(player);
 
-		player = new Player(2L, "Gyopos Marcel", "gyopi", "gyopi@gmail.com", "123456", 10, "USER");
+		player = new Player(2L, "Gyopos Marcel", "gyopi", "gyopi@gmail.com", "123456", 100000, "USER");
 		playerRepository.save(player);
 	}
 }

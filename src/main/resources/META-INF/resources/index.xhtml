@@ -14,20 +14,20 @@
 
 <h:body>
 	<p:tabView class="tabView">
-		<p:tab title="Login">
+		<p:tab title="Bejelentkezés">
 			<h:form>
 				<p:panel id="panel">
 					<p:messages id="msgs" />
 
 					<h:panelGrid columns="3" cellpadding="5">
-						<p:outputLabel for="username" value="Username: " />
+						<p:outputLabel for="username" value="Felhasználónév: " />
 						<p:inputText id="username" value="#{loginRegisterView.username}"
 							required="true" label="Username">
 							<f:validateLength minimum="2" />
 						</p:inputText>
 						<p:message for="username" display="icon" />
 
-						<p:outputLabel for="password" value="Password: " />
+						<p:outputLabel for="password" value="Jelszó: " />
 						<p:inputText id="password" value="#{loginRegisterView.password}"
 							required="true" label="Password">
 							<f:validateLength minimum="2" />
@@ -35,47 +35,47 @@
 						<p:message for="password" id="msgPassword" display="icon" />
 					</h:panelGrid>
 
-					<p:commandButton value="Login" update="panel" icon="ui-icon-check" 
+					<p:commandButton value="Bejelentkezés" update="panel" icon="ui-icon-check" 
 							ajax="false" action="#{loginRegisterView.login}" />
 				</p:panel>
 			</h:form>
 		</p:tab>
 		
-		<p:tab title="Registration">
+		<p:tab title="Regisztráció">
 			<h:form>
 				<p:panel id="panel">
 					<p:messages id="msgs" />
 
 					<h:panelGrid columns="3" cellpadding="5">
-						<p:outputLabel for="name" value="Name: " />
+						<p:outputLabel for="name" value="Név: " />
 						<p:inputText id="name" value="#{loginRegisterView.name}"
 							required="true" label="Name">
 							<f:validateLength minimum="2" />
 						</p:inputText>
 						<p:message for="name" display="icon" />
 						
-						<p:outputLabel for="username" value="Username: " />
+						<p:outputLabel for="username" value="Felhasználónév: " />
 						<p:inputText id="username" value="#{loginRegisterView.username}"
 							required="true" label="Username">
 							<f:validateLength minimum="2" />
 						</p:inputText>
 						<p:message for="username" display="icon" />
 
-						<p:outputLabel for="password" value="Password: " />
+						<p:outputLabel for="password" value="Jelszó: " />
 						<p:inputText id="password" value="#{loginRegisterView.password}"
 							required="true" label="Password">
 							<f:validateLength minimum="2" />
 						</p:inputText>
 						<p:message for="password" id="msgPassword" display="icon" />
 						
-						<p:outputLabel for="email" value="Email: " />
+						<p:outputLabel for="email" value="E-mail: " />
 						<p:inputText id="email" value="#{loginRegisterView.email}"
 							required="true" label="Email">
 							<f:validateLength minimum="2" />
 						</p:inputText>
 						<p:message for="email" display="icon" />
 						
-						<p:outputLabel for="balance" value="Balance: " />
+						<p:outputLabel for="balance" value="Egyenleg: " />
 						<p:inputText id="balance" value="#{loginRegisterView.balance}"
 							required="true" label="Balance">
 							<f:validateLength minimum="2" />
@@ -84,7 +84,7 @@
 
 					</h:panelGrid>
 
-					<p:commandButton value="Register" update="panel" icon="ui-icon-check" 
+					<p:commandButton value="Regisztráció" update="panel" icon="ui-icon-check" 
 							ajax="false" action="#{loginRegisterView.register}" />
 				</p:panel>
 			</h:form>

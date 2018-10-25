@@ -95,6 +95,12 @@ dataTable {
 	grid-gap: .0em;
 }
 
+.outcome {
+	font-size: large;
+	font-family: Arial;
+	text-transform: uppercase;
+}
+
 .tabView {
 	margin: 2em auto;
 	max-width: 50em;

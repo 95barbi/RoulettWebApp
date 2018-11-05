@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: JoinFaces Example
 Implementation-Version: 3.2.5-SNAPSHOT
-Built-By: borbely.balint
+Built-By: borbelybalint
 Implementation-Vendor-Id: org.joinfaces
-Build-Jdk: 1.8.0_181
+Build-Jdk: 1.8.0_171
 Implementation-URL: http://persapiens.org/joinfaces-parent/joinfaces-e
  xample
 Created-By: Maven Integration for Eclipse

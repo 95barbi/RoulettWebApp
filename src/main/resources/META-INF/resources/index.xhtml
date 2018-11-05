@@ -28,10 +28,10 @@
 						<p:message for="username" display="icon" />
 
 						<p:outputLabel for="password" value="Jelszó: " />
-						<p:inputText id="password" value="#{loginRegisterView.password}"
+						<p:password id="password" value="#{loginRegisterView.password}"
 							required="true" label="Password">
 							<f:validateLength minimum="2" />
-						</p:inputText>
+						</p:password>
 						<p:message for="password" id="msgPassword" display="icon" />
 					</h:panelGrid>
 
@@ -62,16 +62,17 @@
 						<p:message for="username" display="icon" />
 
 						<p:outputLabel for="password" value="Jelszó: " />
-						<p:inputText id="password" value="#{loginRegisterView.password}"
+						<p:password id="password" value="#{loginRegisterView.password}"
 							required="true" label="Password">
 							<f:validateLength minimum="2" />
-						</p:inputText>
+						</p:password>
 						<p:message for="password" id="msgPassword" display="icon" />
 						
 						<p:outputLabel for="email" value="E-mail: " />
 						<p:inputText id="email" value="#{loginRegisterView.email}"
-							required="true" label="Email">
+							required="true" label="Email" validatorMessage="Email is invalid.">
 							<f:validateLength minimum="2" />
+							<f:validateRegex pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
 						</p:inputText>
 						<p:message for="email" display="icon" />
 						
